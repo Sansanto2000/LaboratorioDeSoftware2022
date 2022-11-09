@@ -1,0 +1,51 @@
+2) 
+	a) 
+		i) No compila, independientemente de que Gato extienda Animal, 
+		se espera que la variable vet reciba una instancia de 
+		Veterinaria<Animal>, no de Veterinaria<Gato>.
+		
+		ii) Es una situacion muy similar a lo que ocurre en 'i)', con
+		la particularidad de que los tipos estan invertidos. De la 
+		misma forma que en 'i)' este programa NO compilara, y la 
+		justificacion es muy similar a la del inciso anterior, se 
+		espera que la variable vet reciba una instancia de 
+		Veterinaria<Gato>, no de Veterinaria<Animal>.
+		
+		iii) No compila, ya que la variable declarada "vet" de tipo 
+		"Veterinaria <?>" no entiende el metodo "setAnimal(Gato g)" 
+		que se intenta usar sobre la misma, ya que segun la 
+		especificacion de su clase este entiende el tipo 
+		parametrizado que reciba, y en este caso recibe el tipo 
+		comodin "?". En esta situacion el compilador no tiene 
+		suficiente informacion para deducirlo, por lo se resuelve 
+		que en estos casos los metodos que usen el tipo 
+		parametrizado como parametro sean inaccesibles, y asi el 
+		compilador lo puede especificar en compilacion.
+		Al recibir el tipo comodin el compilador asume que el tipo 
+		parametrizado es 'Object', tipo que es claramente distinto de 
+		'Gato'.
+		
+		iv) Funciona, pero la declaracion esta hacha con "raw type" 
+		osea "tipos brutos", a priori no es un problema por que 
+		funciona, pero el compilador nos tira advertencias de esta 
+		linea, ya que segun el primer elemento que insertemos el 
+		raw type contendra un tipo u otros, pero el compilador no 
+		lo sabe, en lo que a el respecta no se asigno ningun tipo, 
+		asi que el autoasignara el elemento como de tipo "Object", 
+		el problema es que al considerarlo de tipo object no se 
+		podra enviar ningun mensaje al objeto (en caso de 
+		recuperarlo) que no tenga la misma firma que los que se le
+		puede enviar a Object. 
+		
+		v) No compila, no se pueden crear instancias de tipos 
+		parametrizados usando el simbolo comodin "?" como tipo 
+		parametro.
+		
+		vi) Funciona y no tira advertencias respecto a la 
+		instanciacion. A la izquierda se especifica que vet debe 
+		ser de un tipo que extienda de Animal y a la derecha se
+		especifica una instancia parametrizada con Gato y Gato 
+		extiende de Animal, por lo que la intancia comple con 
+		la restriccion especificada en la definicion de la 
+		variable "vet". 
+		  
